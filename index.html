@@ -3,37 +3,47 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Undangan Pernikahan — Budi & Sari</title>
+  <title>Undangan Pernikahan — Nama Pasangan</title>
   <meta name="description" content="Undangan pernikahan online. Kami mengundang Anda untuk hadir di hari bahagia kami.">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Undangan Pernikahan — Budi & Sari">
+  <meta property="og:title" content="Undangan Pernikahan — Nama Pasangan">
   <meta property="og:description" content="Kami mengundang Anda untuk hadir di hari bahagia kami.">
-  <meta property="og:image" content="assets/img/pasangan.jpg">
+  <meta property="og:image" content="assets/icons/og-image.jpg">
   <meta property="og:type" content="website">
 
-  <link rel="stylesheet" href="style.css">
   <link rel="icon" href="assets/icons/favicon.ico">
+
+  <!-- AOS (Animasi) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Swiper (Galeri Slider) -->
+  <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Lightbox (Lihat Foto) -->
+  <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Hero Section -->
   <header class="hero" style="background-image: url('assets/img/background.jpg');">
-    <div class="overlay">
-      <p>Kepada <span data-guest-name>Yth. Tamu Undangan</span></p>
-      <h1>Budi & Sari</h1>
-      <p class="date">Minggu, 12 Oktober 2025</p>
-      <button id="openBtn">Buka Undangan</button>
-    </div>
+    <p>Kepada <span data-guest-name>Yth. Tamu Undangan</span></p>
+    <h1>Nama Pasangan</h1>
+    <p class="date">Minggu, 12 Oktober 2025</p>
+    <button id="openBtn">Buka Undangan</button>
   </header>
 
-  <!-- Konten Undangan -->
+  <!-- Konten -->
   <main id="content" hidden>
-    <section class="countdown-section">
+    <!-- Countdown -->
+    <section data-aos="fade-up">
       <h2>Menuju Hari Bahagia</h2>
       <div id="countdown">Memuat…</div>
     </section>
 
-    <section class="acara">
+    <!-- Detail Acara -->
+    <section data-aos="fade-up">
       <h2>Detail Acara</h2>
       <ul>
         <li><strong>Akad:</strong> Minggu, 12 Oktober 2025 — 09.00 WIB</li>
@@ -45,17 +55,27 @@
         loading="lazy"></iframe>
     </section>
 
-    <!-- Galeri -->
-    <section class="gallery">
-      <h2>Galeri Kami</h2>
-      <div class="gallery-grid">
-        <img src="assets/img/galeri1.jpg" alt="Foto 1">
-        <img src="assets/img/galeri2.jpg" alt="Foto 2">
+    <!-- Galeri Foto -->
+    <section data-aos="fade-up">
+      <h2>Galeri</h2>
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <a href="assets/img/galeri1.jpg" data-lightbox="galeri"><img src="assets/img/galeri1.jpg"></a>
+          </div>
+          <div class="swiper-slide">
+            <a href="assets/img/galeri2.jpg" data-lightbox="galeri"><img src="assets/img/galeri2.jpg"></a>
+          </div>
+        </div>
+        <!-- Navigasi Swiper -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
       </div>
     </section>
 
     <!-- RSVP -->
-    <section>
+    <section data-aos="fade-up">
       <h2>RSVP</h2>
       <form id="rsvpForm" action="https://formspree.io/f/xxxxxx" method="POST">
         <input type="hidden" name="tamu" id="guestField">
@@ -73,14 +93,14 @@
     </section>
 
     <!-- Amplop Digital -->
-    <section class="amplop">
+    <section data-aos="fade-up">
       <h2>Amplop Digital</h2>
-      <p>BRI • a.n. Budi & Sari • 1234567890</p>
+      <p>BRI • a.n. Nama Pasangan • 1234567890</p>
       <img src="assets/img/qris.png" alt="QRIS" width="200">
     </section>
 
-    <!-- Share -->
-    <section class="share">
+    <!-- Bagikan -->
+    <section data-aos="fade-up">
       <h2>Bagikan Undangan</h2>
       <button id="shareWA">Bagikan via WhatsApp</button>
     </section>
@@ -89,7 +109,12 @@
   <!-- Musik -->
   <audio id="bgm" src="assets/audio/musik.mp3" preload="none" loop></audio>
 
-  <!-- Script -->
+  <!-- JS Vendor CDN -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
+
+  <!-- Script Custom -->
   <script src="script.js"></script>
 </body>
 </html>

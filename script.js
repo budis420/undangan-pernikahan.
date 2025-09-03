@@ -1,60 +1,62 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const openBtn = document.getElementById("openBtn");
-  const content = document.getElementById("content");
-  const bgm = document.getElementById("bgm");
+// Buka undangan
+document.getElementById('openBtn').addEventListener('click', () => {
+  document.querySelector('.hero').style.display = 'none';
+  document.getElementById('content').hidden = false;
+  document.getElementById('bgm').play();
+});
 
-  // Buka undangan & mainkan musik
-  openBtn.addEventListener("click", () => {
-    content.hidden = false;
-    openBtn.style.display = "none";
-    bgm.play();
+// Countdown
+const targetDate = new Date("2025-10-12T09:00:00").getTime();
+const countdownEl = document.getElementById("countdown");
+
+setInterval(() => {
+  const now = new Date().getTime();
+  const distance = targetDate - now;
+
+  if (distance < 0) {
+    countdownEl.innerText = "Hari Bahagia Telah Tiba!";
+    return;
+  }
+
+  const days = Math.floor(distance / (1000*60*60*24));
+  const hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+  const minutes = Math.floor((distance % (1000*60*60))/(1000*60));
+  const seconds = Math.floor((distance % (1000*60))/1000);
+
+  countdownEl.innerText = `${days} Hari ${hours} Jam ${minutes} Menit ${seconds} Detik`;
+}, 1000);
+
+// RSVP Form
+document.getElementById("rsvpForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  fetch(this.action, {
+    method: "POST",
+    body: new FormData(this)
+  }).then(() => {
+    this.hidden = true;
+    document.getElementById("rsvpThanks").hidden = false;
   });
+});
 
-  // Countdown
-  const countdownEl = document.getElementById("countdown");
-  const eventDate = new Date("2025-10-12T09:00:00").getTime();
+// Share WhatsApp
+document.getElementById("shareWA").addEventListener("click", () => {
+  const url = window.location.href;
+  const text = "Halo! Saya mengundang Anda ke pernikahan kami. Silakan buka undangan di " + url;
+  window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
+});
 
-  setInterval(() => {
-    const now = new Date().getTime();
-    const diff = eventDate - now;
+// Animasi Scroll
+AOS.init();
 
-    if (diff <= 0) {
-      countdownEl.textContent = "Hari ini adalah hari bahagia!";
-      return;
-    }
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
-
-    countdownEl.textContent = `${days} hari ${hours} jam ${minutes} menit ${seconds} detik`;
-  }, 1000);
-
-  // RSVP (Formspree response)
-  const rsvpForm = document.getElementById("rsvpForm");
-  const rsvpThanks = document.getElementById("rsvpThanks");
-
-  rsvpForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const data = new FormData(rsvpForm);
-    const action = rsvpForm.action;
-    const response = await fetch(action, {
-      method: "POST",
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    });
-
-    if (response.ok) {
-      rsvpForm.hidden = true;
-      rsvpThanks.hidden = false;
-    }
-  });
-
-  // Share via WhatsApp
-  document.getElementById("shareWA").addEventListener("click", () => {
-    const url = window.location.href;
-    const text = `Halo, saya mengundang Anda ke acara pernikahan kami.\n\n${url}`;
-    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
-  });
+// Swiper Galeri
+new Swiper(".swiper", {
+  loop: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev"
+  }
 });
