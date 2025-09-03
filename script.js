@@ -1,62 +1,36 @@
-// Buka undangan
-document.getElementById('openBtn').addEventListener('click', () => {
-  document.querySelector('.hero').style.display = 'none';
-  document.getElementById('content').hidden = false;
-  document.getElementById('bgm').play();
+// Animasi scroll
+AOS.init();
+
+// Swiper Gallery
+var swiper = new Swiper('.swiper', {
+  pagination: { el: '.swiper-pagination' },
+  loop: true,
 });
 
 // Countdown
-const targetDate = new Date("2025-10-12T09:00:00").getTime();
-const countdownEl = document.getElementById("countdown");
-
+let targetDate = new Date("2025-08-30T09:00:00").getTime();
+let countdown = document.getElementById("countdown");
 setInterval(() => {
-  const now = new Date().getTime();
-  const distance = targetDate - now;
-
+  let now = new Date().getTime();
+  let distance = targetDate - now;
   if (distance < 0) {
-    countdownEl.innerText = "Hari Bahagia Telah Tiba!";
+    countdown.innerHTML = "Acara telah dimulai!";
     return;
   }
-
-  const days = Math.floor(distance / (1000*60*60*24));
-  const hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
-  const minutes = Math.floor((distance % (1000*60*60))/(1000*60));
-  const seconds = Math.floor((distance % (1000*60))/1000);
-
-  countdownEl.innerText = `${days} Hari ${hours} Jam ${minutes} Menit ${seconds} Detik`;
+  let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  countdown.innerHTML = `${days} Hari ${hours} Jam ${minutes} Menit`;
 }, 1000);
 
-// RSVP Form
-document.getElementById("rsvpForm").addEventListener("submit", function(e){
-  e.preventDefault();
-  fetch(this.action, {
-    method: "POST",
-    body: new FormData(this)
-  }).then(() => {
-    this.hidden = true;
-    document.getElementById("rsvpThanks").hidden = false;
-  });
-});
+// Open Invitation
+const cover = document.getElementById("cover");
+const mainContent = document.getElementById("mainContent");
+const openBtn = document.getElementById("openInvitation");
+const bgm = document.getElementById("bgm");
 
-// Share WhatsApp
-document.getElementById("shareWA").addEventListener("click", () => {
-  const url = window.location.href;
-  const text = "Halo! Saya mengundang Anda ke pernikahan kami. Silakan buka undangan di " + url;
-  window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
-});
-
-// Animasi Scroll
-AOS.init();
-
-// Swiper Galeri
-new Swiper(".swiper", {
-  loop: true,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev"
-  }
+openBtn.addEventListener("click", () => {
+  cover.style.display = "none";
+  mainContent.hidden = false;
+  bgm.play();
 });

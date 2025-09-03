@@ -3,51 +3,80 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Undangan Pernikahan — Nama Pasangan</title>
-  <meta name="description" content="Undangan pernikahan online. Kami mengundang Anda untuk hadir di hari bahagia kami.">
+  <title>Undangan Pernikahan — Agus & Devi</title>
+  <meta name="description" content="Undangan pernikahan online Agus & Devi.">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Undangan Pernikahan — Nama Pasangan">
+  <meta property="og:title" content="Undangan Pernikahan — Agus & Devi">
   <meta property="og:description" content="Kami mengundang Anda untuk hadir di hari bahagia kami.">
   <meta property="og:image" content="assets/icons/og-image.jpg">
   <meta property="og:type" content="website">
 
-  <link rel="icon" href="assets/icons/favicon.ico">
+  <!-- AOS (Animation On Scroll) CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
 
-  <!-- AOS (Animasi) -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Swiper (Gallery Slider) CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-  <!-- Swiper (Galeri Slider) -->
-  <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Lightbox (Lihat Foto) -->
-  <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet">
+  <!-- Lightbox (Image Popup) CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/css/lightbox.min.css" />
 
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/icons/favicon.ico">
 </head>
 <body>
-  <!-- Hero Section -->
-  <header class="hero" style="background-image: url('assets/img/background.jpg');">
-    <p>Kepada <span data-guest-name>Yth. Tamu Undangan</span></p>
-    <h1>Nama Pasangan</h1>
-    <p class="date">Minggu, 12 Oktober 2025</p>
-    <button id="openBtn">Buka Undangan</button>
-  </header>
 
-  <!-- Konten -->
-  <main id="content" hidden>
-    <!-- Countdown -->
-    <section data-aos="fade-up">
+  <!-- COVER -->
+  <section id="cover" class="cover">
+    <div class="cover-content">
+      <img src="assets/img/background.jpg" alt="Agus & Devi" class="cover-img">
+      <div class="overlay"></div>
+      <div class="text">
+        <h3>OUR WEDDING INVITATION</h3>
+        <h1>Agus & Devi</h1>
+        <p>30 Agustus 2025</p>
+        <p>Dear : <span id="guestName">Tamu Undangan</span></p>
+        <button id="openInvitation">💌 Open Invitation</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main id="mainContent" hidden>
+    <header class="hero">
+      <img src="assets/img/pasangan.jpg" alt="Agus & Devi" class="hero-img">
+      <h2>The Wedding Of</h2>
+      <h1>Agus & Devi</h1>
+      <p class="date">Minggu, 30 Agustus 2025</p>
+    </header>
+
+    <!-- Navigasi Bar -->
+    <nav class="navbar">
+      <a href="#home">🏠<span>Home</span></a>
+      <a href="#mempelai">💑<span>Mempelai</span></a>
+      <a href="#event">📅<span>Event</span></a>
+      <a href="#gallery">🖼<span>Gallery</span></a>
+      <a href="#wishes">💌<span>Wishes</span></a>
+    </nav>
+
+    <!-- Section Home -->
+    <section id="home" data-aos="fade-up">
       <h2>Menuju Hari Bahagia</h2>
       <div id="countdown">Memuat…</div>
     </section>
 
-    <!-- Detail Acara -->
-    <section data-aos="fade-up">
+    <!-- Section Mempelai -->
+    <section id="mempelai" data-aos="fade-up">
+      <h2>Mempelai</h2>
+      <p>Agus & Devi dengan penuh cinta mengundang Anda ke hari bahagia kami.</p>
+    </section>
+
+    <!-- Section Event -->
+    <section id="event" data-aos="fade-up">
       <h2>Detail Acara</h2>
       <ul>
-        <li><strong>Akad:</strong> Minggu, 12 Oktober 2025 — 09.00 WIB</li>
-        <li><strong>Resepsi:</strong> Minggu, 12 Oktober 2025 — 11.00–14.00 WIB</li>
+        <li><strong>Akad:</strong> Minggu, 30 Agustus 2025 — 09.00 WIB</li>
+        <li><strong>Resepsi:</strong> Minggu, 30 Agustus 2025 — 11.00–14.00 WIB</li>
         <li><strong>Alamat:</strong> Gedung Contoh, Jl. Mawar No. 10, Jakarta</li>
       </ul>
       <iframe class="map"
@@ -55,66 +84,36 @@
         loading="lazy"></iframe>
     </section>
 
-    <!-- Galeri Foto -->
-    <section data-aos="fade-up">
-      <h2>Galeri</h2>
+    <!-- Section Gallery -->
+    <section id="gallery" data-aos="fade-up">
+      <h2>Gallery</h2>
       <div class="swiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <a href="assets/img/galeri1.jpg" data-lightbox="galeri"><img src="assets/img/galeri1.jpg"></a>
-          </div>
-          <div class="swiper-slide">
-            <a href="assets/img/galeri2.jpg" data-lightbox="galeri"><img src="assets/img/galeri2.jpg"></a>
-          </div>
+          <div class="swiper-slide"><a href="assets/img/galeri1.jpg" data-lightbox="gallery"><img src="assets/img/galeri1.jpg" alt=""></a></div>
+          <div class="swiper-slide"><a href="assets/img/galeri2.jpg" data-lightbox="gallery"><img src="assets/img/galeri2.jpg" alt=""></a></div>
         </div>
-        <!-- Navigasi Swiper -->
         <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
       </div>
     </section>
 
-    <!-- RSVP -->
-    <section data-aos="fade-up">
-      <h2>RSVP</h2>
-      <form id="rsvpForm" action="https://formspree.io/f/xxxxxx" method="POST">
-        <input type="hidden" name="tamu" id="guestField">
-        <label>Nama <input type="text" name="nama" required></label>
-        <label>WhatsApp <input type="tel" name="wa" required></label>
-        <label>Kehadiran
-          <select name="hadir" required>
-            <option value="Hadir">Hadir</option>
-            <option value="Tidak Hadir">Tidak Hadir</option>
-          </select>
-        </label>
+    <!-- Section Wishes -->
+    <section id="wishes" data-aos="fade-up">
+      <h2>Doa & Ucapan</h2>
+      <form id="wishesForm">
+        <input type="text" placeholder="Nama Anda" required>
+        <textarea placeholder="Ucapan..." required></textarea>
         <button type="submit">Kirim</button>
       </form>
-      <p id="rsvpThanks" hidden>Terima kasih! RSVP Anda sudah terkirim.</p>
-    </section>
-
-    <!-- Amplop Digital -->
-    <section data-aos="fade-up">
-      <h2>Amplop Digital</h2>
-      <p>BRI • a.n. Nama Pasangan • 1234567890</p>
-      <img src="assets/img/qris.png" alt="QRIS" width="200">
-    </section>
-
-    <!-- Bagikan -->
-    <section data-aos="fade-up">
-      <h2>Bagikan Undangan</h2>
-      <button id="shareWA">Bagikan via WhatsApp</button>
+      <div id="wishesList"></div>
     </section>
   </main>
 
-  <!-- Musik -->
-  <audio id="bgm" src="assets/audio/musik.mp3" preload="none" loop></audio>
+  <audio id="bgm" src="assets/audio/musik.mp3" preload="none"></audio>
 
-  <!-- JS Vendor CDN -->
+  <!-- JS -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
-
-  <!-- Script Custom -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/js/lightbox.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
