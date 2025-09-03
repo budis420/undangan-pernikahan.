@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Undangan Pernikahan — Budi & Sari</title>
+  <meta name="description" content="Undangan pernikahan online. Kami mengundang Anda untuk hadir di hari bahagia kami.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Undangan Pernikahan — Budi & Sari">
+  <meta property="og:description" content="Kami mengundang Anda untuk hadir di hari bahagia kami.">
+  <meta property="og:image" content="assets/img/pasangan.jpg">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/icons/favicon.ico">
+</head>
+<body>
+  <!-- Hero Section -->
+  <header class="hero" style="background-image: url('assets/img/background.jpg');">
+    <div class="overlay">
+      <p>Kepada <span data-guest-name>Yth. Tamu Undangan</span></p>
+      <h1>Budi & Sari</h1>
+      <p class="date">Minggu, 12 Oktober 2025</p>
+      <button id="openBtn">Buka Undangan</button>
+    </div>
+  </header>
+
+  <!-- Konten Undangan -->
+  <main id="content" hidden>
+    <section class="countdown-section">
+      <h2>Menuju Hari Bahagia</h2>
+      <div id="countdown">Memuat…</div>
+    </section>
+
+    <section class="acara">
+      <h2>Detail Acara</h2>
+      <ul>
+        <li><strong>Akad:</strong> Minggu, 12 Oktober 2025 — 09.00 WIB</li>
+        <li><strong>Resepsi:</strong> Minggu, 12 Oktober 2025 — 11.00–14.00 WIB</li>
+        <li><strong>Alamat:</strong> Gedung Contoh, Jl. Mawar No. 10, Jakarta</li>
+      </ul>
+      <iframe class="map"
+        src="https://www.google.com/maps?q=-6.175392,106.827153&z=16&output=embed"
+        loading="lazy"></iframe>
+    </section>
+
+    <!-- Galeri -->
+    <section class="gallery">
+      <h2>Galeri Kami</h2>
+      <div class="gallery-grid">
+        <img src="assets/img/galeri.jpg" alt="Foto 1">
+        <img src="assets/img/galer2.jpg" alt="Foto 2">
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section>
+      <h2>RSVP</h2>
+      <form id="rsvpForm" action="https://formspree.io/f/xxxxxx" method="POST">
+        <input type="hidden" name="tamu" id="guestField">
+        <label>Nama <input type="text" name="nama" required></label>
+        <label>WhatsApp <input type="tel" name="wa" required></label>
+        <label>Kehadiran
+          <select name="hadir" required>
+            <option value="Hadir">Hadir</option>
+            <option value="Tidak Hadir">Tidak Hadir</option>
+          </select>
+        </label>
+        <button type="submit">Kirim</button>
+      </form>
+      <p id="rsvpThanks" hidden>Terima kasih! RSVP Anda sudah terkirim.</p>
+    </section>
+
+    <!-- Amplop Digital -->
+    <section class="amplop">
+      <h2>Amplop Digital</h2>
+      <p>BRI • a.n. Budi & Sari • 1234567890</p>
+      <img src="assets/img/qris.png" alt="QRIS" width="200">
+    </section>
+
+    <!-- Share -->
+    <section class="share">
+      <h2>Bagikan Undangan</h2>
+      <button id="shareWA">Bagikan via WhatsApp</button>
+    </section>
+  </main>
+
+  <!-- Musik -->
+  <audio id="bgm" src="assets/audio/musik.mp3" preload="none" loop></audio>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "Undangan Pernikahan",
+  "short_name": "Undangan",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#e63946",
+  "icons": [
+    {
+      "src": "assets/icons/favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    }
+  ]
+}
